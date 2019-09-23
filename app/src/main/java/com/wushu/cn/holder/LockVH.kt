@@ -31,7 +31,7 @@ class LockVH(view: View) : BaseViewHolderV2(view) {
             //设置应用包名
             ui?.tvAppPackage?.text = appInfo.packageName
             //检查用户之前是否有设置过
-            ui?.st?.isChecked = appInfo.isCheck
+            ui?.st?.isChecked = appInfo.check == 1
             //设置监听
             ui?.st?.setOnCheckedChangeListener { buttonView, isChecked ->
                 BKLog.d("isChecked:$isChecked")
