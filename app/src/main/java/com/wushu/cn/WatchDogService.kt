@@ -55,7 +55,7 @@ class WatchDogService : Service() {
 
         override fun run() {
             while (flag) {
-                Thread.sleep(300)
+                Thread.sleep(5000)
                 // 判断是否启动了任务，再对比被拦截App的包名，选择是否调起锁屏界面。
                 val pkg = AppUtil.getTopActivity(applicationContext)
                 if (pkg == "com.ponko.cn") {

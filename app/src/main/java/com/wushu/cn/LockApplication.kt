@@ -25,7 +25,7 @@ class LockApplication : Application() {
     }
 
     private fun iniDB() {
-        lockDBHelp = LockDBHelp(this, "lock.db", 100)
-        lockDao = LockDao(lockDBHelp)
+        lockDBHelp = LockDBHelp(this, "wushu.db", 100)
+        lockDao = LockDao("lock",lockDBHelp)
     }
 }

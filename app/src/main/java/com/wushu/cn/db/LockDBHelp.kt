@@ -9,15 +9,10 @@ import com.xm.lib.common.helper.AbsDBHelp
  */
 class LockDBHelp(context: Context?, name: String?, version: Int) : AbsDBHelp(context, name, version) {
 
-    var lockSqlStatementCreation: LockSqlStatementCreation? = LockSqlStatementCreation()
-
-    override fun getCreateTables(): ArrayList<String> {
-        val createTables = ArrayList<String>()
-
-        //如果传入对象是Any就会出问题:getShadow$_klass_ []
-        createTables.add(lockSqlStatementCreation?.createSQLTable(AppInfoBean(), "lock")!!)
-
-        return createTables
+    override fun getCreateTables(): HashMap<String, Any> {
+        val table = HashMap<String, Any>()
+        table["lock"] = LockDbBean()
+        return table
     }
 
 }

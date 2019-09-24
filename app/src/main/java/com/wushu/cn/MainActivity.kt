@@ -1,8 +1,11 @@
 package com.wushu.cn
 
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.wushu.cn.contract.MainContract
+import com.wushu.cn.db.LockDbBean
 import com.wushu.cn.holder.LockVH
 import com.xm.lib.common.base.mvp.MvpActivity
 import com.xm.lib.common.base.rv.decoration.MyDividerItemDecoration
@@ -45,6 +48,17 @@ class MainActivity : MvpActivity<MainContract.P>(), MainContract.V {
         p?.requestAppInfoList()
         //开启一个看门狗服务
         p?.startWatchDogService()
+
+        val lock = LockDbBean()
+        lock.icon = BitmapDrawable()
+        lock.packageName = "packageName1234124"
+        lock.appName = "appName1321324"
+        lock.choose = 1
+        lock.system = 1
+        lock.versionName = "2.0.0"
+        LockApplication.lockDao?.insert(lock)
+        LockApplication.lockDao?.select(lock)
+        //LockApplication.lockDao?.delete(lock)
     }
 
     override fun iniEvent() {
