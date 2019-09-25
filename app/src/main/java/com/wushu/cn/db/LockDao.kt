@@ -11,11 +11,11 @@ class LockDao(private var tableName: String, private var lockDBHelp: LockDBHelp?
         return LockDbBean()
     }
 
-    override fun getDeleteSelectionValaue(bean: LockDbBean?): Array<Any?> {
+    override fun getDeleteBindValue(bean: LockDbBean?): Array<Any?> {
         return arrayOf(bean?.packageName)
     }
 
-    override fun getSelectSelectionValue(bean: LockDbBean?): Array<String?> {
+    override fun getSelectBindValue(bean: LockDbBean?): Array<String?> {
         return arrayOf(bean?.packageName)
     }
 

@@ -49,16 +49,7 @@ class MainActivity : MvpActivity<MainContract.P>(), MainContract.V {
         //开启一个看门狗服务
         p?.startWatchDogService()
 
-        val lock = LockDbBean()
-        lock.icon = BitmapDrawable()
-        lock.packageName = "packageName1234124"
-        lock.appName = "appName1321324"
-        lock.choose = 1
-        lock.system = 1
-        lock.versionName = "2.0.0"
-        LockApplication.lockDao?.insert(lock)
-        LockApplication.lockDao?.select(lock)
-        //LockApplication.lockDao?.delete(lock)
+
     }
 
     override fun iniEvent() {
